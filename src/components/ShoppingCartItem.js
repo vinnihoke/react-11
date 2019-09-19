@@ -5,9 +5,11 @@ import { CartContext } from "../context/CartContext";
 const Item = props => {
   const [cart, setCart] = useContext(CartContext);
   const removeItem = () => {
-    setCart(() => {
-      cart.filter(item => item.id === props.id);
-    });
+    const removedItem = setCart(
+      [...cart],
+      cart.filter(item => item.id === props.id)
+    );
+    console.log(cart);
   };
 
   return (
